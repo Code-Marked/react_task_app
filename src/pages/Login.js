@@ -23,9 +23,9 @@ const Login=()=>{
                 if (res.status === 200) {
                 setUsername("");
                 setPassword("");
-                setMessage("Log In Successful");
+                setMessage(resJson.msg);
                 } else {
-                    setMessage("Some error occured");
+                    setMessage(resJson.msg);
                 }
         } catch (err) {
           console.log(err);
