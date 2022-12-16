@@ -12,6 +12,9 @@ function Navbar() {
           <Link to="/tictactoe">TicTacToe</Link>
         </li>
         <li>
+          <Link to="/register">Register</Link>
+        </li>
+        <li>
           <Link to="/login">Login</Link>
         </li>
         <li>
