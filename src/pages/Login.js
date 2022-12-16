@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
+import {useNavigate} from 'react-router-dom';
 
 const Login=()=>{
+    const navigate = useNavigate();
     const [message, setMessage] = useState("");
 	const [username,setUsername]=useState(""); 
 	const [password,setPassword]=useState(""); 
@@ -24,6 +26,7 @@ const Login=()=>{
                 setUsername("");
                 setPassword("");
                 setMessage(resJson.msg);
+                navigate('/tictactoe');
                 } else {
                     setMessage(resJson.msg);
                 }
