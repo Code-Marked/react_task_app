@@ -22,7 +22,7 @@ const Login=()=>{
                 }),
             });
             let resJson = await res.json();
-                if (res.status === 200) {
+                if (res.status === 201) {
                 setUsername("");
                 setPassword("");
                 setMessage(resJson.msg);
