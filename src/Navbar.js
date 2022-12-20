@@ -12,6 +12,9 @@ function Navbar() {
           <Link to="/tictactoe">TicTacToe</Link>
         </li>
         <li>
+          <Link to="/alltasks">All Tasks</Link>
+        </li>
+        <li>
           <Link to="/register">Register</Link>
         </li>
         <li>
