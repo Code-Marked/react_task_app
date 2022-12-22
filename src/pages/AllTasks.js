@@ -10,7 +10,8 @@ class AllTasks extends React.Component {
         this.setState({
             loading: true
         }, () => {
-            fetch("http://localhost:5000/alltasks").then(res => res.json()).then(result => this.setState({
+            fetch("http://localhost:5000/alltasks"
+            ).then(res => res.json()).then(result => this.setState({
                 loading: false,
                 tasklist: result
             })).catch(console.log);
@@ -31,22 +32,40 @@ class AllTasks extends React.Component {
                 {
                     error.message
                 } </p> : null}  {
-                    tasklist.map(task => {
-                        const {
-                            id,
-                            title,
-                            completed
-                        } = task;
-                        return (
-                        <div key={id}>
-                            <p>Id: {id}</p>
-                            <p>Title: {title}</p>
-                            <p>Completed: {completed}</p>
-                            <hr />
-                        </div>
-                        );
-                    })
+                    JsonDataDisplay(tasklist)
                 } </React.Fragment> );
     }
 }
+
+function JsonDataDisplay(jsonData){
+        const DisplayData=jsonData.map(
+            (task)=>{
+                return(
+                    <tr>
+                        <td>{task.id}</td>
+                        <td>{task.title}</td>
+                        <td>{task.completed}</td>
+                    </tr>
+                )
+            }
+        )
+        
+        return(
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {DisplayData}
+                    </tbody>
+                </table>
+            </div>
+        )
+}
+
 export default AllTasks;
